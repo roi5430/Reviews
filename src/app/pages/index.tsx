@@ -2,6 +2,8 @@
 import { useState } from 'react';
 import useSWR from 'swr';
 import { Review } from '@/app/interfaces/interface';
+import  {reviews} from "@/app/test/test";
+
 
 const fetcher = (url: string) => fetch(url).then(res => res.json());
 

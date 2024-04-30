@@ -8,16 +8,23 @@ interface Props {
 const ReviewList: React.FC<Props> = ({ reviews }) => {
   return (
     <div>
-      {reviews.map(review => (
-        <div key={review.id} className="border p-4 my-2">
-          <div className="font-bold">{review.author}</div>
-          <div>{review.date}</div>
-          <div>Оцінка: {review.rating}</div>
+      {reviews.map((review) => (
+        <div
+          key={review.id}
+          className='border p-4 my-2'
+        >
+          <h3 className='font-bold'>
+            {review.author} <span> {review.date}</span>
+          </h3>
+          <div>
+            {" "}
+            Оцінка:
+            {review.rating}
+          </div>
           <p>{review.content}</p>
         </div>
       ))}
     </div>
   );
 };
-
 export default ReviewList;
