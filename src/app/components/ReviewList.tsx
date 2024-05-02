@@ -1,5 +1,6 @@
 import React from 'react';
 import { Review } from '@/app/interfaces/interface';
+import StarRating from "@/app/components/StarRating"
 
 interface Props {
   reviews: Review[];
@@ -7,21 +8,19 @@ interface Props {
 
 const ReviewList: React.FC<Props> = ({ reviews }) => {
   return (
-    <div>
+    <div >
       {reviews.map((review) => (
         <div
           key={review.id}
           className='border p-4 my-2'
         >
-          <h3 className='font-bold'>
-            {review.author} <span> {review.date}</span>
+          <h3 className='font-bold text-lg'>
+            {review.author} <span className="text-gray-500"> {review.date}</span>
           </h3>
-          <div>
-            {" "}
-            Оцінка:
-            {review.rating}
+          <div className="flex items-center mt-2">
+          <StarRating rating={review.rating} />
           </div>
-          <p>{review.content}</p>
+          <p className="mt-2 text-gray-700">{review.content}</p>
         </div>
       ))}
     </div>

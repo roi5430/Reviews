@@ -3,7 +3,7 @@ export const reviews =[{
     rating: 4,
     content: 'nghj utyuty',
     author: 'Mikey',
-    date: '12.03.2024',
+    date: '14.03.2024',
 },
 {
     id:1,

@@ -1,17 +1,32 @@
 'use client'
-import ReviewList from "./components/ReviewList" ;
-import FilterButtons from "./components/FilterButtons";
+import { useState } from "react"
+import ReviewList from "./components/ReviewList";
+import { reviews } from "@/app/test/test"
+import Select from "@/app/components/Select"
+import { Review } from "./interfaces/interface";
 
-export default async function Home() {
-  
+export default function Home() {
+  const [filter, setFilter] = useState<string>('');
+  const array: string[] = ['За рейтингом', 'За датою'];
+    const Filter=():Review[] | undefined=>{
+     if(filter==='За рейтингом'){
+        return reviews.sort((a,b) => b.rating-a.rating);
+      
+     } else if(filter==='За датою')
+     {
+        
+      return reviews.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());;
+    } 
+    };
+    Filter();
   return (
-    <>
+
     <div>
-      <ReviewList reviews={[]}></ReviewList>
-      <FilterButtons onFilterChange={function (filter: string): void {
-          throw new Error("Function not implemented.");
-        } }></FilterButtons>
-      </div>
-    </>
+      
+      <Select value={filter} setValue={setFilter} array={array}></Select>
+      <ReviewList reviews={reviews}></ReviewList>
+
+    </div>
+
   )
 }
