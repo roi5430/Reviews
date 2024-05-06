@@ -18,6 +18,12 @@ export const reviews =[{
     content:'jhkjgkf',
     author:'Milana',
     date:'1.04.2024'
-}
-
+},
+{
+    id:3,
+    rating:1,
+    content:'hkjkg',
+    author:'Sveta',
+    date:'1.05.2024'
+},
 ]
